@@ -1,0 +1,57 @@
+DEF  Haus_vom_Nikolaus (startPos: IN)
+
+;Definition
+E6POS startPos
+E6POS roboPos 
+DECL bool isDrawing
+DECL int dx [8]
+DECL int dy [8]
+DECL bool shouldDraw [8]
+DECL int iCount
+
+;Initialisierung
+roboPos = startPos
+isDrawing = true
+dx [1] = 0
+dy [1] = -100
+shouldDraw [1] = TRUE
+dx [2] = 100
+dy [2] = -100
+shouldDraw [2] = TRUE
+dx [3] = 50
+dy [3] = -150
+shouldDraw [3] = TRUE
+dx [4] = 0
+dy [4] = -100
+shouldDraw [4] = TRUE
+dx [5] = 100
+dy [5] = 0
+shouldDraw [5] = TRUE
+dx [6] = 0
+dy [6] = 0
+shouldDraw [6] = TRUE
+dx [7] = 100
+dy [7] = -100
+shouldDraw [7] = TRUE
+dx [8] = 100
+dy [8] = 0
+shouldDraw [8] = TRUE
+
+;Schleife
+FOR iCount = 1 TO 8 STEP 1
+   IF shouldDraw[iCount] <> isDrawing THEN
+      isDrawing = shouldDraw[iCount]
+      IF isDrawing == TRUE THEN
+         roboPos.Z = startPos.Z
+      ELSE
+         roboPos.Z = startPos.Z + 10
+      ENDIF
+      sLin robopos
+   ENDIF
+   roboPos.X = startPos.X + dx[iCount]
+   roboPos.Y = startPos.Y + dy[iCount]
+   sLin robopos
+
+ENDFOR
+
+END

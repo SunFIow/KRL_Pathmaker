@@ -1,0 +1,10 @@
+Name;Roboter_Path
+xOffset;0
+yOffset;0
+zoom;1
+points.Count;5
+points[0];2;594;True
+points[1];6;6;True
+points[2];597;4;True
+points[3];595;596;True
+points[4];8;593;True

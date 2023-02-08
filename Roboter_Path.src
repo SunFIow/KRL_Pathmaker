@@ -1,0 +1,45 @@
+DEF  Roboter_Path (startPos: IN)
+
+;Definition
+E6POS startPos
+E6POS roboPos 
+DECL bool isDrawing
+DECL int dx [4]
+DECL int dy [4]
+DECL bool shouldDraw [4]
+DECL int iCount
+
+;Initialisierung
+roboPos = startPos
+isDrawing = true
+dx [1] = 2
+dy [1] = -353
+shouldDraw [1] = TRUE
+dx [2] = 357
+dy [2] = -354
+shouldDraw [2] = TRUE
+dx [3] = 356
+dy [3] = 1
+shouldDraw [3] = TRUE
+dx [4] = 4
+dy [4] = -1
+shouldDraw [4] = TRUE
+
+;Schleife
+FOR iCount = 1 TO 4 STEP 1
+   IF shouldDraw[iCount] <> isDrawing THEN
+      isDrawing = shouldDraw[iCount]
+      IF isDrawing == TRUE THEN
+         roboPos.Z = startPos.Z
+      ELSE
+         roboPos.Z = startPos.Z + 10
+      ENDIF
+      sLin robopos
+   ENDIF
+   roboPos.X = startPos.X + dx[iCount]
+   roboPos.Y = startPos.Y + dy[iCount]
+   sLin robopos
+
+ENDFOR
+
+END
